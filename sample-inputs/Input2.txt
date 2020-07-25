@@ -1,0 +1,4 @@
+20
+1 bbb bb
+2 a bb
+3 bb bba

@@ -1,0 +1,28 @@
+public class Stack<E>{
+    private class Node<E>{
+        E data;
+        Node<E> next;
+        public Node(E data){
+            this.data = data;
+        }
+    }
+
+    private Node<E> head;
+    private int size;
+
+    public void push(E data){
+        Node<E> incoming = new Node<E>(data);
+        if(size > 0){
+            incoming.next = head;
+        }
+        head = incoming;
+        size ++;
+    }
+
+    public E pop(){
+        E toReturn = head.data;
+        head = head.next;
+        size --;
+        return toReturn;
+    }
+}
