@@ -1,5 +1,7 @@
 # The Post Correspondence Problem
 
+## Description
+
 You are given a collection of dominos. Each domino has a string of characters on top and another string on the bottom. (Both strings are non-empty.) You can make as many copies of the dominos as you need. The problem is to place the dominos side by side so that the combination of the strings on the top is the same as the combination of the strings on the bottom.
 
 **Example**: Suppose:
@@ -7,7 +9,7 @@ D1 = "c/cca"
 D2 = "ac/ba".
 D3 = "bb/b".
 D4 = "ac/cb".
-Then the sequence D3, D2, D1, D4, D3 spells out the string ``bbaccacbb'' both on the top and on the bottom.
+Then the sequence D3, D2, D1, D4, D3 spells out the string `bbaccacbb` both on the top and on the bottom.
 
 The Post correspondence problem is, surpringly, only semi-decidable. If there is an answer then, obviously, one can find it by exhaustive search; however, there is no algorithm that always terminates and that always answers correctly whether or not an instance of the problem has a solution. The problem can be characterized in terms of the following state space:
 
@@ -16,9 +18,12 @@ An operator on a state is to add the strings from another domino at the end of t
 The start state is the pair < "", "" > of empty strings on the top and bottom.
 The goal state is a state where the top string and bottom string are non-empty and equal.
 
+## Input and Output
+
 The input is a text file where the maximum number of states to search.
 Each successive line lists a description of a domino of the form
-[domino number] [front end] [back end]
+
+`[domino number] [front end] [back end]`
 
 The program will output 1 of 3 results:
 
@@ -27,3 +32,17 @@ The program will output 1 of 3 results:
 2. A message stating that no solution exists.
 
 3. A message stating that that no solution was found within the limits of search.
+
+## Using the code
+
+compile with:
+
+`javac Domino.java DominoString.java Queue.java Post.java`
+
+run with
+
+`java Post [File Path]`
+
+The program expects a File Path to a File that contains the formatted
+input as described in the project description.  This includes a maximum
+states number, as well as a list of dominos.
